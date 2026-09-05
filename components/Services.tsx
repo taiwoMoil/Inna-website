@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import { FULLSCRIPT_URL } from "../lib/site";
 
 export function Services() {
   const orderedServices = [
@@ -44,7 +45,7 @@ export function Services() {
       gradient: "from-[#41ab5d] to-[#41ab5d]",
       bgGradient: "from-[#41ab5d]/5 to-[#41ab5d]/10",
       cta: "Join the Next Group",
-      ctaLink: "https://calendly.com/inna-ntp/free-restart-discovery-call",
+      ctaLink: "https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone",
       popular: true
     },
     {
@@ -136,7 +137,7 @@ export function Services() {
                   <p className="text-gray-600 text-sm">{service.perfectFor}</p>
                 </div>
 
-                <Link href={service.ctaLink || "https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone"} className="w-full">
+                <Link href={service.ctaLink || "https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone"} className="w-full">
                   <button className="w-full py-4 px-6 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl border-2 border-gray-300 text-gray-700 hover:border-[#41ab5d] hover:text-[#41ab5d] hover:bg-[#41ab5d]/5">
                     <span className="flex items-center justify-center gap-2">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -151,6 +152,17 @@ export function Services() {
           ))}
         </div>
 
+        <div className="mb-16 flex flex-col items-start justify-between gap-6 rounded-3xl border border-[#315f52]/15 bg-[#f3eee4] p-8 md:flex-row md:items-center md:p-10">
+          <div className="max-w-2xl">
+            <p className="mb-2 text-sm font-bold uppercase tracking-[0.16em] text-[#9a5848]">Client supplement dispensary</p>
+            <h3 className="mb-3 text-2xl font-bold text-[#173b32]">Order practitioner-recommended supplements through Fullscript</h3>
+            <p className="leading-relaxed text-gray-600">Existing clients can use Inna's secure Fullscript dispensary to access their supplement recommendations in one place.</p>
+          </div>
+          <Link href={FULLSCRIPT_URL} target="_blank" rel="noreferrer" className="shrink-0 rounded-full bg-[#315f52] px-7 py-4 font-semibold text-white transition-transform hover:-translate-y-1">
+            Visit Fullscript
+          </Link>
+        </div>
+
         {/* Bottom CTA */}
         <div className="text-center">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-gray-100/50 max-w-4xl mx-auto">
@@ -160,7 +172,7 @@ export function Services() {
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Schedule a complimentary consultation to discuss your health goals and find the perfect program for your needs.
             </p>
-            <Link target="_blank" href="https://calendly.com/inna-ntp/free-15-minutes-discovery-call-via-phone">
+            <Link target="_blank" href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone">
               <button className="group gradient-bg text-white px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
                 <span className="flex items-center gap-3">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

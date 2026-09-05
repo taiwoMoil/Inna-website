@@ -1,104 +1,71 @@
+import { BUSINESS_NAME, PRACTITIONER_NAME, SITE_URL } from "../lib/site";
 
 export function StructuredData() {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Rosales Yard Maintenance",
-    "description": "Professional lawn care and landscaping services in Austin, Buda, Kyle & Manchaca. Owner-operated since 2019.",
-    "url": "https://rosalesyard.com",
-    "telephone": "+1-512-694-1773",
-    "email": "info@rosalesyard.com",
-    "foundingDate": "2019",
-    "founder": {
-      "@type": "Person",
-      "name": "John Rosales"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Austin",
-      "addressRegion": "TX",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "30.2672",
-      "longitude": "-97.7431"
-    },
-    "areaServed": [
+    "@graph": [
       {
-        "@type": "City",
-        "name": "Austin",
-        "addressRegion": "TX"
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: BUSINESS_NAME,
+        inLanguage: "en-US",
+        publisher: { "@id": `${SITE_URL}/#organization` },
       },
       {
-        "@type": "City", 
-        "name": "Buda",
-        "addressRegion": "TX"
-      },
-      {
-        "@type": "City",
-        "name": "Kyle", 
-        "addressRegion": "TX"
-      },
-      {
-        "@type": "City",
-        "name": "Manchaca",
-        "addressRegion": "TX"
-      }
-    ],
-    "serviceType": [
-      "Lawn Care",
-      "Landscaping",
-      "Yard Maintenance",
-      "Lawn Mowing",
-      "Landscape Design"
-    ],
-    "priceRange": "$$",
-    "openingHours": [
-      "Mo-Fr 07:00-18:00",
-      "Sa 08:00-16:00"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "500"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Lawn Care Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Lawn Mowing & Maintenance",
-            "description": "Professional weekly or bi-weekly mowing with precision cutting heights"
-          }
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: BUSINESS_NAME,
+        url: SITE_URL,
+        email: "healthy@empoweredwithinna.com",
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/Empowered_SQ_logo.png`,
+          width: 532,
+          height: 427,
         },
-        {
-          "@type": "Offer", 
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Full Maintenance Package",
-            "description": "Complete weekly lawn care package with 25% savings"
-          }
+        founder: { "@id": `${SITE_URL}/#inna-benyukhis` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${SITE_URL}/#inna-benyukhis`,
+        name: PRACTITIONER_NAME,
+        url: `${SITE_URL}/#about`,
+        image: `${SITE_URL}/Inna.jpg`,
+        jobTitle: "Certified Nutritional Therapy Practitioner",
+        worksFor: { "@id": `${SITE_URL}/#organization` },
+        knowsAbout: [
+          "Functional nutrition",
+          "Gut health",
+          "Hormone balance",
+          "Functional lab testing",
+          "Nutrition for women over 40",
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": `${SITE_URL}/#functional-nutrition`,
+        name: "Personalized Functional Nutrition",
+        serviceType: "Functional nutrition coaching and lab testing",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        areaServed: "United States",
+        audience: {
+          "@type": "PeopleAudience",
+          suggestedGender: "female",
+          suggestedMinAge: 40,
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service", 
-            "name": "Landscape Design & Installation",
-            "description": "Custom landscape transformation with native Texas plants"
-          }
-        }
-      ]
-    }
+        description:
+          "Personalized nutrition coaching and functional testing support for women experiencing gut, hormone, energy, and healthy-aging concerns.",
+      },
+    ],
   };
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }

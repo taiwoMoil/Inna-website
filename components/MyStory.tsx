@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
 export function MyStory() {
@@ -30,7 +29,7 @@ export function MyStory() {
               <div className="relative bg-[#41ab5d]/5 rounded-3xl p-8 shadow-2xl">
                 <img
                   src="/Inna_image_standing.png"
-                  alt="Inna Topiler, Functional Nutritionist"
+                  alt="Inna Benyukhis, Certified Nutritional Therapy Practitioner"
                   width={400}
                   height={500}
                   className="rounded-2xl w-full shadow-xl"
@@ -69,11 +68,14 @@ export function MyStory() {
                   "Today, I empower women in their 40s–60s who struggle with fatigue, gut issues, brain fog, and low confidence, guiding them with root-cause testing and personalized nutrition so they can reclaim energy, clarity, and vibrant living."
                 </p>
               </div>
+              <p className="text-base font-semibold tracking-wide text-[#315f52]">
+                Inna Benyukhis, Certified Nutritional Therapy Practitioner
+              </p>
             </div>
 
             {/* CTA */}
             <div className="mt-8">
-              <Link target="_blank" href="https://calendly.com/inna-ntp/free-restart-discovery-call">
+              <Link target="_blank" href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone">
                 <button className="group gradient-bg text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
                   <span className="flex items-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

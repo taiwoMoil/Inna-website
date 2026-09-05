@@ -1,4 +1,4 @@
-import { Header } from "../components/header";
+import type { Metadata } from "next";
 import { Hero } from "../components/hero";
 import { SocialProof } from "../components/SocialProof";
 import { HowWeHelp } from "../components/HowWeHelp";
@@ -7,19 +7,23 @@ import { MyStory } from "../components/MyStory";
 import { Testimonials } from "../components/Testimonials";
 import { QuickTips } from "../components/QuickTips";
 import { BlogPreview } from "../components/BlogPreview";
-import { LeadMagnet } from "../components/LeadMagnet";
 import { FAQ } from "../components/FAQ";
 import { FinalCTA } from "../components/FinalCTA";
 import { ChatWidget } from "../components/ChatWidget";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { BackToTop } from "../components/BackToTop";
+import { StructuredData } from "../components/structuredData";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
     <>
+      <StructuredData />
       <ScrollProgress />
-      <Header />
-      <main className="overflow-x-hidden">
+      <div className="overflow-x-hidden">
         <Hero />
         <SocialProof />
         <HowWeHelp />
@@ -28,10 +32,9 @@ export default function Home() {
         <Testimonials />
         <QuickTips />
         <BlogPreview />
-        <LeadMagnet />
         <FAQ />
         <FinalCTA />
-      </main>
+      </div>
       <ChatWidget />
       <BackToTop />
     </>
