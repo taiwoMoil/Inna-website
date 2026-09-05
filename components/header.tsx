@@ -34,7 +34,7 @@ export function Header() {
 
   return (
     <header
-      className={`site-header ${isScrolled || isMenuOpen ? "site-header-scrolled" : ""}`}
+      className={`site-header ${isScrolled || isMenuOpen || isBlogPage ? "site-header-scrolled" : ""}`}
     >
       <nav className="site-nav" aria-label="Primary navigation">
         <Link

@@ -54,8 +54,8 @@ const achievements = [
 const certifications = [
   ["CNTP", "Certified Nutritional Therapy Practitioner"],
   ["RESTART®", "Sugar Detox Program"],
-  ["IRH", "Institute of Restorative Health"],
-  ["SMT", "Synergistic Muscle Testing"],
+  ["IRH Certified", "Institute of Restorative Health"],
+  ["Synergistic Muscle Testing", "Identifying Imbalances In Your Body"],
 ];
 
 export function SocialProof() {

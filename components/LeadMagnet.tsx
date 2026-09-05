@@ -1,219 +1,250 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  BookOpen,
+  Check,
+  Leaf,
+  LockKeyhole,
+  Mail,
+  Sparkles,
+  X,
+} from "lucide-react";
 
 interface LeadMagnetProps {
   autoOpen?: boolean;
 }
 
+const benefits = [
+  "A complete 7-day gut-friendly meal plan",
+  "Prebiotic, probiotic, and brain-supporting recipes",
+  "A practical shopping list for easier preparation",
+  "Simple habits to support mood, energy, and digestion",
+];
+
 export function LeadMagnet({ autoOpen = false }: LeadMagnetProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
-  const leadMagnets = [
-    {
-      title: "The Gut-Brain Reset: 7-Day Meal Plan",
-      subtitle: "Nourish Your Gut. Balance Your Mind.",
-      description: "Discover how simple food swaps can reduce inflammation, support digestion, and boost emotional wellness with this 7-day, gut-friendly plan.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      ),
-      benefits: [
-        "7-day step-by-step gut-friendly meal plan",
-        "Recipes packed with prebiotics, probiotics & brain-supporting nutrients",
-        "Easy shopping list for stress-free prep",
-        "Tips to boost mood and energy naturally",
-        "Bonus: Quick lifestyle hacks for better digestion"
-      ],
-      value: "💡 $47 Value – Yours FREE"
-    }
-  ];
+  function closeModal() {
+    setIsOpen(false);
+  }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
     setIsSubmitting(true);
-    setMessage('');
+    setMessage("");
 
     try {
-      const response = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-
       const data = await response.json();
 
       if (response.ok) {
         setIsSubmitted(true);
-        setMessage('Success! Check your email for the guide.');
-        setTimeout(() => {
-          setIsOpen(false);
-          // Reset for next time
-          setTimeout(() => {
-            setIsSubmitted(false);
-            setMessage('');
-          }, 500);
-        }, 4000);
+        setMessage("Your guide is on its way.");
+        setEmail("");
       } else {
-        setMessage(data.error || 'Something went wrong. Please try again.');
+        setMessage(data.error || "Something went wrong. Please try again.");
       }
-    } catch (error) {
-      setMessage('Network error. Please check your connection and try again.');
+    } catch {
+      setMessage("Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }
 
   useEffect(() => {
-    if (isOpen) {
-      setIsVisible(true);
-    }
-  }, [isOpen]);
+    if (!autoOpen || window.sessionStorage.getItem("lead-magnet-shown")) return;
 
-  useEffect(() => {
-    if (autoOpen && !window.sessionStorage.getItem('lead-magnet-shown')) {
-      const timer = setTimeout(() => {
-        window.sessionStorage.setItem('lead-magnet-shown', 'true');
-        setIsOpen(true);
-      }, 20000);
-      
-      return () => clearTimeout(timer);
-    }
+    const timer = window.setTimeout(() => {
+      window.sessionStorage.setItem("lead-magnet-shown", "true");
+      setIsOpen(true);
+    }, 20000);
+
+    return () => window.clearTimeout(timer);
   }, [autoOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeModal();
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
   return (
-    <>
-      {isOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className={`bg-white shadow-2xl max-w-4xl w-full max-h-[95vh] relative transition-all duration-500 ${
-            isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-8'
-          }`}>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-20 group"
-            >
-              <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            
-            <div className="max-h-[95vh] overflow-y-auto">
-              {!isSubmitted ? (
-                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
-                  <div className="bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] p-8 lg:p-12 text-white">
-                    <div className="h-full flex flex-col justify-center">
-                      <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
-                        {leadMagnets[0].icon}
-                      </div>
-                      
-                      <h2 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-                        {leadMagnets[0].title}
-                      </h2>
-                      
-                      <h3 className="text-xl mb-6 opacity-90">
-                        {leadMagnets[0].subtitle}
-                      </h3>
-                      
-                      <p className="text-lg mb-8 opacity-90 leading-relaxed">
-                        {leadMagnets[0].description}
-                      </p>
+    <div className="lead-modal-backdrop" onMouseDown={closeModal}>
+      <section
+        className="lead-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="lead-modal-title"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <button
+          className="lead-modal-close"
+          type="button"
+          onClick={closeModal}
+          aria-label="Close free guide dialog"
+        >
+          <X size={19} aria-hidden="true" />
+        </button>
 
-                      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-6">
-                        <h4 className="text-lg font-bold mb-4">What's Inside:</h4>
-                        <ul className="space-y-3">
-                          {leadMagnets[0].benefits.map((benefit, index) => (
-                            <li key={index} className="flex items-start">
-                              <svg className="w-5 h-5 text-white mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                              </svg>
-                              <span className="text-white/90">{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+        {!isSubmitted ? (
+          <div className="lead-modal-layout">
+            <div className="lead-guide-panel">
+              <div className="lead-guide-orbit" aria-hidden="true" />
+              <div className="lead-guide-label">
+                <Leaf size={15} aria-hidden="true" /> Complimentary guide
+              </div>
 
-                      <div className="bg-white/20 rounded-xl px-4 py-2 inline-block">
-                        <span className="font-bold text-sm">{leadMagnets[0].value}</span>
-                      </div>
-                    </div>
-                  </div>
+              <div
+                className="lead-guide-cover"
+                aria-label="Preview of the 7-Day Gut-Hormones Reset Meal Plan"
+              >
+                <div className="lead-guide-cover-top">
+                  <span>Empowered Wellness</span>
+                  <BookOpen size={21} aria-hidden="true" />
+                </div>
+                <div className="lead-guide-cover-copy">
+                  <small>The</small>
+                  <strong>
+                    Gut–Hormones
+                    <br />
+                    Reset
+                  </strong>
+                  <span>7-Day Meal Plan</span>
+                </div>
+                <div className="lead-guide-days" aria-hidden="true">
+                  {[1, 2, 3, 4, 5, 6, 7].map((day) => (
+                    <i key={day}>{day}</i>
+                  ))}
+                </div>
+                <p>
+                  Nourish your gut.
+                  <br />
+                  Balance your mind.
+                </p>
+              </div>
 
-                  <div className="p-8 lg:p-12 flex flex-col justify-center rounded-r-3xl lg:rounded-l-none rounded-b-3xl lg:rounded-b-3xl bg-white">
-                    <div className="text-center mb-8">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                        Get Instant Access
-                      </h3>
-                      <p className="text-gray-600">
-                        Enter your email below and I'll send you the full 7-day gut-brain reset meal plan right away.
-                      </p>
-                    </div>
+              <div className="lead-guide-value">
+                <span>$47 value</span>
+                <strong>Yours complimentary</strong>
+              </div>
+            </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#41ab5d] focus:border-transparent transition-all duration-200 text-gray-900"
-                          placeholder="Enter your email..."
-                        />
-                      </div>
-                      <button 
-                        type="submit" 
-                        className="w-full bg-gradient-to-r from-[#E88074] to-[#FCAF15] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl disabled:opacity-70 disabled:cursor-not-allowed"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? 'Submitting...' : 'Send My Free Guide'}
-                      </button>
-                    </form>
-                    {message && (
-                      <div className={`mt-4 p-3 rounded-lg text-sm text-center ${message.includes('Success') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                        {message}
-                      </div>
+            <div className="lead-modal-content">
+              <div className="lead-modal-kicker">
+                <Sparkles size={14} aria-hidden="true" /> A better week starts
+                here
+              </div>
+              <h2 id="lead-modal-title">
+                The Gut-Hormones Reset: <em>7-Day Meal Plan</em>
+              </h2>
+              <p className="lead-modal-intro">
+                Discover how thoughtful food choices can support digestion,
+                hormone health, and steady energy with a practical plan created
+                to make starting feel simple.
+              </p>
+
+              <div className="lead-modal-includes">
+                <span>Inside the guide</span>
+                <ul>
+                  {benefits.map((benefit) => (
+                    <li key={benefit}>
+                      <Check size={15} aria-hidden="true" />
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <form className="lead-modal-form" onSubmit={handleSubmit}>
+                <label htmlFor="lead-magnet-email">
+                  Where should we send your guide?
+                </label>
+                <div>
+                  <Mail size={17} aria-hidden="true" />
+                  <input
+                    id="lead-magnet-email"
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    placeholder="you@example.com"
+                    autoComplete="email"
+                    required
+                    autoFocus
+                  />
+                  <button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      "Sending…"
+                    ) : (
+                      <>
+                        Send my guide{" "}
+                        <ArrowRight size={17} aria-hidden="true" />
+                      </>
                     )}
-                    <p className="text-xs text-gray-500 text-center mt-4">
-                      🔒 Your privacy is protected. No spam, ever. Unsubscribe anytime.
-                    </p>
-                  </div>
+                  </button>
                 </div>
-              ) : (
-                <div className="p-12 text-center min-h-[400px] flex flex-col justify-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#41ab5d] to-[#41ab5d] rounded-full flex items-center justify-center mx-auto mb-8">
-                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h2 className="text-4xl font-bold text-gray-900 mb-6">Success! 🎉</h2>
-                  <p className="text-xl text-gray-600 mb-4">
-                    Your 7-Day Gut-Brain Reset Meal Plan has been sent to your email!
-                  </p>
-                  <p className="text-gray-500 mb-8">
-                    Check your inbox (and spam folder) for your free guide.
-                  </p>
-                  <div className="bg-[#41ab5d]/5 border border-[#41ab5d]/20 rounded-2xl p-6 max-w-md mx-auto">
-                    <p className="text-[#41ab5d] font-medium">
-                      💡 Pro Tip: Add our email to your contacts to ensure you receive all health insights!
-                    </p>
-                  </div>
-                </div>
+              </form>
+
+              {message && (
+                <p
+                  className="lead-modal-message lead-modal-message-error"
+                  role="status"
+                >
+                  {message}
+                </p>
               )}
+              <p className="lead-modal-privacy">
+                <LockKeyhole size={13} aria-hidden="true" /> Your privacy is
+                protected. Unsubscribe at any time.
+              </p>
             </div>
           </div>
-        </div>
-      )}
-    </>
+        ) : (
+          <div className="lead-modal-success">
+            <span>
+              <Check size={24} aria-hidden="true" />
+            </span>
+            <p>One more step</p>
+            <h2 id="lead-modal-title">
+              Your reset is <em>on its way.</em>
+            </h2>
+            <div className="lead-success-rule" />
+            <p>
+              Check your inbox—and your spam folder—for the 7-Day Gut-Hormones
+              Reset Meal Plan.
+            </p>
+            <button type="button" onClick={closeModal}>
+              Continue exploring <ArrowRight size={17} aria-hidden="true" />
+            </button>
+            <small>
+              Add healthy@empoweredwithinna.com to your contacts so future
+              wellness notes reach you.
+            </small>
+          </div>
+        )}
+      </section>
+    </div>
   );
 }

@@ -9,7 +9,7 @@ const ADMIN_EMAIL = "healthy@empoweredwithinna.com";
 const FROM_EMAIL =
   "Empowered Wellness with Inna <healthy@empoweredwithinna.com>"; // This must be a verified domain on Resend
 const PDF_URL =
-  "https://empoweredwithinna.com/7_Day_Gut_Brain_Reset_Meal_Plan.pdf";
+  "https://empoweredwithinna.com/7_Day_Gut_Hormones_Reset_Meal_Plan.pdf";
 
 export async function POST(req: NextRequest) {
   try {
@@ -49,12 +49,12 @@ export async function POST(req: NextRequest) {
     const { data: userData, error: userError } = await resend.emails.send({
       from: FROM_EMAIL,
       to: [email],
-      subject: "🌿 Your 7-Day Gut-Brain Reset Meal Plan is Here!",
+      subject: "🌿 Your 7-Day Gut-Hormones Reset Meal Plan is Here!",
       html: leadMagnetEmailHtml,
       attachments: [
         {
           path: PDF_URL,
-          filename: "7_Day_Gut_Brain_Reset_Meal_Plan.pdf",
+          filename: "7_Day_Gut_Hormones_Reset_Meal_Plan.pdf",
         },
       ],
     });

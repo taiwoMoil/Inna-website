@@ -1,17 +1,19 @@
-import React from 'react';
+import React from "react";
 
 interface LeadMagnetEmailTemplateProps {
   email: string;
   downloadUrl: string;
 }
 
-export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = ({ email, downloadUrl }) => {
+export const LeadMagnetEmailTemplate: React.FC<
+  LeadMagnetEmailTemplateProps
+> = ({ email, downloadUrl }) => {
   return (
     <html>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Your 7-Day Gut-Brain Reset Meal Plan</title>
+        <title>Your 7-Day Gut-Hormones Reset Meal Plan</title>
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
           
@@ -255,17 +257,16 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
           </div>
 
           <div className="content">
-            <div className="welcome-badge">
-              🎉 Your Free Guide Is Here!
-            </div>
-            
+            <div className="welcome-badge">🎉 Your Free Guide Is Here!</div>
+
             <h1 className="main-title">
-              Your 7-Day Gut-Brain Reset Meal Plan
+              Your 7-Day Gut-Hormones Reset Meal Plan
             </h1>
-            
+
             <p className="description">
-              Thank you for taking the first step toward better gut health and hormone health!
-              Your personalized 7-Day Gut-Brain Reset Meal Plan is ready for you.
+              Thank you for taking the first step toward better gut health and
+              hormone health! Your personalized 7-Day Gut-Hormones Reset Meal
+              Plan is ready for you.
             </p>
 
             <div className="divider"></div>
@@ -273,8 +274,8 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
             <div className="download-section">
               <h2 className="download-title">Download Your Free Guide</h2>
               <p className="download-description">
-                Click the button below to access your complete 7-day meal plan with recipes, 
-                shopping lists, and lifestyle tips.
+                Click the button below to access your complete 7-day meal plan
+                with recipes, shopping lists, and lifestyle tips.
               </p>
               <a href={downloadUrl} className="cta-button">
                 📥 Download My Meal Plan
@@ -289,7 +290,10 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
               </div>
               <div className="benefit-item">
                 <span className="benefit-icon">✓</span>
-                <span>Recipes packed with prebiotics, probiotics & brain-supporting nutrients</span>
+                <span>
+                  Recipes packed with prebiotics, probiotics & brain-supporting
+                  nutrients
+                </span>
               </div>
               <div className="benefit-item">
                 <span className="benefit-icon">✓</span>
@@ -308,36 +312,47 @@ export const LeadMagnetEmailTemplate: React.FC<LeadMagnetEmailTemplateProps> = (
             <div className="next-steps">
               <h3>🌟 Ready for Personalized Support?</h3>
               <p>
-                If you're looking for deeper guidance on your health journey, I'd love to help! 
-                Schedule a complimentary 15-minute Wellness Clarity Call to discuss your unique health goals.
+                If you're looking for deeper guidance on your health journey,
+                I'd love to help! Schedule a complimentary 15-minute Wellness
+                Clarity Call to discuss your unique health goals.
               </p>
-              <a href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone" className="discovery-link">
+              <a
+                href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone"
+                className="discovery-link"
+              >
                 Book Your Free Call →
               </a>
             </div>
 
             <div className="signature">
-              <p style={{ marginBottom: '15px', color: '#6c757d' }}>
+              <p style={{ marginBottom: "15px", color: "#6c757d" }}>
                 Here's to your health and vitality!
               </p>
               <div className="signature-name">Inna Benyukhis</div>
-              <div className="signature-title">Certified Nutritional Therapy Practitioner</div>
+              <div className="signature-title">
+                Certified Nutritional Therapy Practitioner
+              </div>
             </div>
           </div>
 
           <div className="footer">
             <p className="footer-text">
-              You're receiving this email because you requested the 7-Day Gut-Brain Reset Meal Plan 
-              from Empowered Wellness with Inna.
+              You're receiving this email because you requested the 7-Day
+              Gut-Hormones Reset Meal Plan from Empowered Wellness with Inna.
             </p>
-            
-            <p style={{
-              fontSize: '12px',
-              color: '#9ca3af',
-              margin: '0'
-            }}>
-              © {new Date().getFullYear()} Empowered Wellness with Inna. All rights reserved.<br/>
-              Functional Nutrition • Root-Cause Healing • Women's Health Transformation
+
+            <p
+              style={{
+                fontSize: "12px",
+                color: "#9ca3af",
+                margin: "0",
+              }}
+            >
+              © {new Date().getFullYear()} Empowered Wellness with Inna. All
+              rights reserved.
+              <br />
+              Functional Nutrition • Root-Cause Healing • Women's Health
+              Transformation
             </p>
           </div>
         </div>
