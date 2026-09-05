@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { Hero } from "../components/hero";
-import { SocialProof } from "../components/SocialProof";
-import { HowWeHelp } from "../components/HowWeHelp";
-import { Services } from "../components/Services";
-import { MyStory } from "../components/MyStory";
-import { Testimonials } from "../components/Testimonials";
-import { QuickTips } from "../components/QuickTips";
-import { BlogPreview } from "../components/BlogPreview";
-import { FAQ } from "../components/FAQ";
-import { FinalCTA } from "../components/FinalCTA";
+import {
+  BlogPreview,
+  FAQ,
+  FinalCTA,
+  HowWeHelp,
+  MyStory,
+  QuickTips,
+  Services,
+  SocialProof,
+  Testimonials,
+} from "../components/landingSections";
 import { ChatWidget } from "../components/ChatWidget";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { BackToTop } from "../components/BackToTop";
