@@ -1150,12 +1150,10 @@
 }
 .footer-logo {
   display: inline-block;
-  padding: 0.4rem;
-  background: #f7f3eb;
 }
 .footer-logo img {
   display: block;
-  width: 10.5rem;
+  width: 11.5rem;
   height: auto;
 }
 .footer-lead > div:first-child > p {

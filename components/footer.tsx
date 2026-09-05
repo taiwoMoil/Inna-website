@@ -63,7 +63,7 @@ export function Footer() {
               aria-label="Empowered Wellness with Inna homepage"
             >
               <Image
-                src="/Empowered_SQ_logo.png"
+                src="/Empowered_SQ_logo_white.png"
                 width={170}
                 height={58}
                 alt="Empowered Wellness with Inna"
