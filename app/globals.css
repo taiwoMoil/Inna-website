@@ -1913,10 +1913,23 @@
   color: white !important;
 }
 
+.blog-article-redesign [class*="bg-gradient-to-r"] h4,
+.blog-article-redesign [class*="bg-gradient-to-br"] h4 {
+  color: white !important;
+}
+
 /* Keep supporting copy legible when article CTA and author panels use the
    redesigned evergreen surface. Button labels keep their own dark color. */
 .blog-article-redesign [class*="bg-gradient-to-"] p {
   color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.blog-article-redesign aside[class*="bg-gradient-to-"] a {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.blog-article-redesign aside[class*="bg-gradient-to-"] a:hover {
+  color: white !important;
 }
 
 .blog-article-redesign
