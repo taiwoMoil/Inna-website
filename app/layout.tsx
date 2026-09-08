@@ -6,6 +6,7 @@ import { Footer } from '../components/footer';
 import { ChatProvider } from '../components/chatProvider';
 import { StructuredData } from '../components/structuredData';
 import { LeadMagnet } from '../components/LeadMagnet';
+import { SITE } from '../lib/site';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     default: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Wellness with Inna',
     template: '%s | Empowered Wellness with Inna'
   },
-  description: 'Transform your health with functional testing and personalized nutrition. Specialized care for women 30-55 experiencing fatigue, anxiety, gut issues, and perimenopause symptoms.',
+  description: SITE.description,
   keywords: [
     'functional nutrition',
     'gut health specialist',
@@ -29,12 +30,11 @@ export const metadata: Metadata = {
     'brain fog treatment',
     'IBS functional nutrition'
   ],
-  authors: [{ name: 'Inna Topiler', url: 'https://empowerednutritionwithinna.com' }],
-  creator: 'Empowered Wellness with Inna',
-  publisher: 'Empowered Wellness with Inna',
-  metadataBase: new URL('https://empowerednutritionwithinna.com'),
+  creator: SITE.name,
+  publisher: SITE.name,
+  metadataBase: new URL(SITE.origin),
   alternates: {
-    canonical: 'https://empowerednutritionwithinna.com',
+    canonical: '/',
   },
   formatDetection: {
     email: false,
@@ -44,25 +44,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Wellness with Inna',
     description: 'Functional testing + personalized nutrition for women seeking energy, clarity, and relief from chronic symptoms',
-    url: 'https://empowerednutritionwithinna.com',
-    siteName: 'Empowered Wellness with Inna',
-    images: [
-      {
-        url: '/inna.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Inna Topiler, Functional Nutritionist specializing in gut health and women\'s wellness',
-      },
-    ],
-    locale: 'en_US',
+    url: '/',
+    siteName: SITE.name,
+    images: ['/opengraph-image'],
+    locale: SITE.locale,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Root-Cause Nutrition for Fatigue & Gut Health',
     description: 'Functional testing + personalized nutrition for women seeking energy and gut health.',
-    images: ['/inna.jpg'],
-    creator: '@InnaTopiler',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
@@ -76,10 +68,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'your-google-site-verification',
-    yandex: 'your-yandex-verification',
   },
   category: 'business',
   classification: 'Functional Nutrition and Health Services',
@@ -100,8 +88,6 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
         <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#41ab5d" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

@@ -1,4 +1,3 @@
-import { Header } from "../components/header";
 import { Hero } from "../components/hero";
 import { SocialProof } from "../components/SocialProof";
 import { HowWeHelp } from "../components/HowWeHelp";
@@ -18,8 +17,7 @@ export default function Home() {
   return (
     <>
       <ScrollProgress />
-      <Header />
-      <main className="overflow-x-hidden">
+      <div className="overflow-x-hidden">
         <Hero />
         <SocialProof />
         <HowWeHelp />
@@ -31,7 +29,7 @@ export default function Home() {
         <LeadMagnet />
         <FAQ />
         <FinalCTA />
-      </main>
+      </div>
       <ChatWidget />
       <BackToTop />
     </>

@@ -1,16 +1,11 @@
 'use client';
 
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function StressGutPolyvagal() {
   return (
     <>
-      <Head>
-        <title>The Hidden Link Between Stress & Gut Issues (Polyvagal Theory Explained) | Empowered Nutrition with Inna</title>
-        <meta name="description" content="Explore the science behind stress and gut health through Polyvagal Theory. Learn tools to restore balance and heal your nervous system." />
-      </Head>
       <div className="min-h-screen bg-white text-gray-800 pt-32">
 
         {/* Breadcrumbs */}

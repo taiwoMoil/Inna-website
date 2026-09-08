@@ -229,7 +229,7 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Call us</p>
-                  <a href="tel:555-123-4567" className="text-gray-900 hover:text-green-600 transition-colors font-medium">
+                  <a href="tel:+13124044675" className="text-gray-900 hover:text-green-600 transition-colors font-medium">
                     (312) 404-4675
                   </a>
                 </div>
@@ -251,7 +251,7 @@ export function Footer() {
 
             {/* Social Links */}
             <div className="flex space-x-4">
-              {socialLinks.map((social) => (
+              {socialLinks.filter((social) => social.href !== '#').map((social) => (
                 <a
                   key={social.name}
                   href={social.href}

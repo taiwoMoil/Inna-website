@@ -1,16 +1,11 @@
 'use client';
 
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function PerimenopauseGutHealth() {
   return (
     <>
-      <Head>
-        <title>Perimenopause and Gut Health: What Most Doctors Overlook | Empowered Nutrition with Inna</title>
-        <meta name="description" content="Explore the vital connection between perimenopause, estrogen, and your gut microbiome. Learn how gut imbalances fuel symptoms and discover empowering steps to support your health." />
-      </Head>
       <div className="min-h-screen bg-white text-gray-800 pt-32">
 
         {/* Breadcrumbs */}

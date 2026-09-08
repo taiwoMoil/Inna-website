@@ -1,16 +1,11 @@
 'use client';
 
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function RootCauseNutrition() {
   return (
     <>
-      <Head>
-        <title>Root-Cause Nutrition vs. Quick Fixes: Why Personalization Matters | Empowered Nutrition with Inna</title>
-        <meta name="description" content="Discover why personalized nutrition strategies lead to better, more sustainable changes than generic advice." />
-      </Head>
       <div className="min-h-screen bg-white text-gray-800 pt-32">
 
         {/* Breadcrumbs */}

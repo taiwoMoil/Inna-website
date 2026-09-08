@@ -1,16 +1,11 @@
 'use client';
 
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function CorporateWellness() {
   return (
     <>
-      <Head>
-        <title>Corporate Wellness Spotlight: How Gut Health Programs Boost Productivity and Reduce Costs | Empowered Nutrition with Inna</title>
-        <meta name="description" content="Discover how digestive disorders impact workplace productivity and costs, plus evidence-based strategies for implementing gut health programs in corporate settings." />
-      </Head>
       <div className="min-h-screen bg-white text-gray-800 font-sans pt-32">
 
         {/* Breadcrumbs */}
@@ -129,7 +124,7 @@ export default function CorporateWellness() {
           {/* Featured Image */}
           {/* <div className="mb-12">
             <Image
-              src="/blog-images/corporate-wellness.jpg"
+              src="/hero-bg.png"
               alt="Corporate wellness and gut health"
               width={800}
               height={400}

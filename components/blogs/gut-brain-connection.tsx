@@ -1,16 +1,11 @@
 'use client';
 
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function GutBrainConnection() {
   return (
     <>
-      <Head>
-        <title>The Gut-Brain Connection: Why Your Anxiety Might Start in Your Stomach | Empowered Nutrition with Inna</title>
-        <meta name="description" content="Explore the science behind the gut-brain axis and how it influences anxiety and digestion. Discover actionable strategies for balance." />
-      </Head>
       <div className="min-h-screen bg-white text-gray-800 font-sans pt-32">
 
         {/* Breadcrumbs */}

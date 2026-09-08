@@ -1,16 +1,11 @@
 'use client';
 
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function HealthcareFailsWomen() {
   return (
     <>
-      <Head>
-        <title>When Standard Healthcare Fails Women: Why Many Are Misdiagnosed and How to Advocate for Yourself | Empowered Nutrition with Inna</title>
-        <meta name="description" content="Understand gender bias in medical care, why women face higher misdiagnosis rates, and learn how to advocate for yourself in the healthcare system." />
-      </Head>
       <div className="min-h-screen bg-white text-gray-800 font-sans pt-32">
 
         {/* Breadcrumbs */}
@@ -129,7 +124,7 @@ export default function HealthcareFailsWomen() {
           {/* Featured Image */}
           {/* <div className="mb-12">
             <Image
-              src="/blog-images/healthcare-fails-women.jpg"
+              src="/hero-bg.png"
               alt="Women's healthcare advocacy"
               width={800}
               height={400}

@@ -171,6 +171,8 @@ export function FAQ() {
             >
               <button
                 onClick={() => toggleFAQ(index)}
+                aria-expanded={openFAQ === index}
+                aria-controls={`faq-answer-${index}`}
                 className="w-full p-8 text-left flex items-center justify-between focus:outline-none group"
               >
                 <div className="flex items-start space-x-4 flex-1">
@@ -197,7 +199,7 @@ export function FAQ() {
                 </div>
               </button>
               
-              <div className={`transition-all duration-500 ease-in-out ${
+              <div id={`faq-answer-${index}`} className={`transition-all duration-500 ease-in-out ${
                 openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               } overflow-hidden`}>
                 <div className="px-8 pb-8">
