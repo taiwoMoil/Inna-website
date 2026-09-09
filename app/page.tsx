@@ -15,6 +15,7 @@ import { ChatWidget } from "../components/ChatWidget";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { BackToTop } from "../components/BackToTop";
 import { StructuredData } from "../components/structuredData";
+import { CentralTexasServiceArea } from "../components/CentralTexasServiceArea";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -27,6 +28,7 @@ export default function Home() {
       <ScrollProgress />
       <div className="overflow-x-hidden">
         <Hero />
+        <CentralTexasServiceArea />
         <SocialProof />
         <HowWeHelp />
         <Services />

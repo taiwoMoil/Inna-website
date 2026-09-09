@@ -8,12 +8,13 @@ import { usePathname } from "next/navigation";
 import { CONSULTATION_URL } from "../lib/site";
 
 const landingLinks = [
-  { name: "Approach", href: "#how-we-help" },
-  { name: "Services", href: "#services" },
-  { name: "About Inna", href: "#about" },
-  { name: "Stories", href: "#testimonials" },
-  { name: "Resources", href: "#resources" },
-  { name: "FAQ", href: "#faq" },
+  { name: "Approach", href: "/#how-we-help" },
+  { name: "Services", href: "/#services" },
+  { name: "Central Texas", href: "/central-texas-functional-nutrition" },
+  { name: "About Inna", href: "/#about" },
+  { name: "Stories", href: "/#testimonials" },
+  { name: "Resources", href: "/#resources" },
+  { name: "FAQ", href: "/#faq" },
 ];
 
 export function Header() {

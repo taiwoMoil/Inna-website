@@ -9,6 +9,8 @@ import { CONSULTATION_URL } from "../lib/site";
 const navigation = [
   ["About", "/#about"],
   ["Services", "/#services"],
+  ["Central Texas", "/central-texas-functional-nutrition"],
+  ["Contact", "/contact"],
   ["Client stories", "/#testimonials"],
   ["Resources", "/#resources"],
   ["FAQ", "/#faq"],
@@ -133,7 +135,7 @@ export function Footer() {
               <Phone size={16} /> (312) 404-4675
             </a>
             <p>
-              <MapPin size={16} /> Virtual care available nationwide
+              <MapPin size={16} /> Serving Buda, Kyle, Austin, San Marcos, and Central Texas virtually
             </p>
             <Link href={CONSULTATION_URL} target="_blank" rel="noreferrer">
               Book a clarity call <ArrowRight size={16} />
@@ -149,7 +151,7 @@ export function Footer() {
           <div>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
-            <Link href="/disclaimer">Disclaimer</Link>
+            <Link href="/medical-disclaimer">Disclaimer</Link>
           </div>
         </div>
       </div>

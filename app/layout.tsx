@@ -4,18 +4,22 @@ import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { ChatProvider } from "../components/chatProvider";
 import { LeadMagnet } from "../components/LeadMagnet";
-import { BUSINESS_NAME, PRACTITIONER_NAME, SITE_URL } from "../lib/site";
+import { BUSINESS_NAME, PRACTITIONER_NAME, SITE, SITE_URL } from "../lib/site";
 
 export const metadata: Metadata = {
   title: {
     default:
-      "Functional Nutrition for Women 40+ | Empowered Wellness with Inna",
+      "Functional Nutrition for Central Texas | Empowered Wellness with Inna",
     template: `%s | ${BUSINESS_NAME}`,
   },
   description:
-    "Root-cause functional nutrition, hormone and gut health support, and personalized testing for women 40+ experiencing fatigue, bloating, brain fog, and perimenopause symptoms.",
+    SITE.description,
   keywords: [
     "functional nutrition",
+    "functional nutrition Buda TX",
+    "functional nutrition Kyle TX",
+    "functional nutrition Austin TX",
+    "functional nutrition San Marcos TX",
     "gut health specialist",
     "chronic fatigue nutrition support",
     "functional medicine testing",
@@ -38,9 +42,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Functional Nutrition for Women 40+ | Empowered Wellness with Inna",
-    description:
-      "Personalized functional nutrition and testing for gut health, hormone balance, energy, and healthy aging.",
+    title: "Functional Nutrition for Central Texas | Empowered Wellness with Inna",
+    description: SITE.description,
     url: "/",
     siteName: BUSINESS_NAME,
     images: [
@@ -56,9 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Functional Nutrition for Women 40+",
-    description:
-      "Root-cause nutrition for gut health, hormone balance, energy, and healthy aging.",
+    title: "Functional Nutrition for Central Texas",
+    description: SITE.description,
     images: ["/Inna.jpg"],
   },
   robots: {

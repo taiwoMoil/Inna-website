@@ -1,6 +1,17 @@
-import { BUSINESS_NAME, PRACTITIONER_NAME, SITE_URL } from "../lib/site";
+import {
+  BUSINESS_NAME,
+  PRACTITIONER_NAME,
+  SERVICE_AREAS,
+  SITE,
+  SITE_URL,
+} from "../lib/site";
 
 export function StructuredData() {
+  const areaServed = SERVICE_AREAS.map((area) => ({
+    "@type": "City",
+    name: `${area.name}, ${area.region}`,
+  }));
+
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -17,7 +28,10 @@ export function StructuredData() {
         "@id": `${SITE_URL}/#organization`,
         name: BUSINESS_NAME,
         url: SITE_URL,
-        email: "healthy@empoweredwithinna.com",
+        description: SITE.description,
+        email: SITE.email,
+        telephone: SITE.phone,
+        areaServed,
         logo: {
           "@type": "ImageObject",
           url: `${SITE_URL}/Empowered_SQ_logo.png`,
@@ -30,7 +44,7 @@ export function StructuredData() {
         "@type": "Person",
         "@id": `${SITE_URL}/#inna-benyukhis`,
         name: PRACTITIONER_NAME,
-        url: `${SITE_URL}/#about`,
+        url: `${SITE_URL}${SITE.practitioner.path}`,
         image: `${SITE_URL}/Inna.jpg`,
         jobTitle: "Certified Nutritional Therapy Practitioner",
         worksFor: { "@id": `${SITE_URL}/#organization` },
@@ -48,14 +62,13 @@ export function StructuredData() {
         name: "Personalized Functional Nutrition",
         serviceType: "Functional nutrition coaching and lab testing",
         provider: { "@id": `${SITE_URL}/#organization` },
-        areaServed: "United States",
+        areaServed,
         audience: {
           "@type": "PeopleAudience",
           suggestedGender: "female",
           suggestedMinAge: 40,
         },
-        description:
-          "Personalized nutrition coaching and functional testing support for women experiencing gut, hormone, energy, and healthy-aging concerns.",
+        description: SITE.description,
       },
     ],
   };

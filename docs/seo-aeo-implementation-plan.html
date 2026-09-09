@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>
+      SEO &amp; AEO Implementation Plan — Empowered Wellness with Inna
+    </title>
+    <style>
+      :root {
+        --ink: #17352d;
+        --muted: #5e716a;
+        --green: #287a48;
+        --green-dark: #155a35;
+        --green-soft: #e9f6ed;
+        --cream: #fbfaf5;
+        --line: #dce7df;
+        --red: #b42318;
+        --danger-soft: #fff0ee;
+        --amber-soft: #fff7e8;
+        --warning: #9a6700;
+        --white: #ffffff;
+        --shadow: 0 18px 50px rgba(23, 53, 45, 0.09);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--cream);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--green-dark);
+      }
+      a:hover {
+        color: var(--green);
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 32px));
+        margin: 28px auto 56px;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 64px clamp(24px, 5vw, 68px);
+        color: var(--white);
+        background: linear-gradient(135deg, #123f31, #267348 62%, #41ab5d);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        right: -100px;
+        top: -150px;
+        border: 70px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        max-width: 800px;
+        margin: 0;
+        font-size: clamp(2.25rem, 5vw, 4.7rem);
+        line-height: 1.03;
+        letter-spacing: -0.045em;
+      }
+
+      .hero .lead {
+        max-width: 760px;
+        margin: 24px 0 30px;
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 0.84rem;
+      }
+
+      .meta span {
+        padding: 7px 11px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        position: sticky;
+        top: 8px;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+      }
+
+      nav a {
+        padding: 7px 11px;
+        color: var(--ink);
+        font-size: 0.84rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 9px;
+      }
+
+      nav a:hover {
+        background: var(--green-soft);
+      }
+
+      section {
+        margin-top: 20px;
+        padding: clamp(24px, 4vw, 44px);
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        box-shadow: 0 8px 30px rgba(23, 53, 45, 0.04);
+      }
+
+      h2 {
+        margin: 0 0 18px;
+        font-size: clamp(1.55rem, 3vw, 2.25rem);
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+      }
+
+      h3 {
+        margin: 28px 0 8px;
+        line-height: 1.25;
+      }
+      p {
+        margin: 0 0 14px;
+      }
+
+      .callout {
+        padding: 20px 22px;
+        background: var(--danger-soft);
+        border-left: 5px solid var(--danger);
+        border-radius: 12px;
+      }
+
+      .callout strong {
+        color: var(--danger);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+      }
+
+      .card h3 {
+        margin: 8px 0 8px;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 4px 9px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border-radius: 999px;
+      }
+
+      .pill.red {
+        color: var(--danger);
+        background: var(--danger-soft);
+      }
+      .pill.amber {
+        color: var(--warning);
+        background: var(--warning-soft);
+      }
+      .pill.green {
+        color: var(--green-dark);
+        background: var(--green-soft);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.93rem;
+      }
+
+      th,
+      td {
+        padding: 13px 12px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 0.74rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        background: #f7faf8;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .phase {
+        display: grid;
+        grid-template-columns: 118px 1fr;
+        gap: 24px;
+        padding: 28px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .phase:first-of-type {
+        border-top: 0;
+      }
+
+      .phase-label {
+        font-weight: 850;
+        color: var(--green-dark);
+      }
+
+      .phase-label small {
+        display: block;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      ol,
+      ul {
+        margin: 10px 0 0;
+        padding-left: 1.25rem;
+      }
+      li {
+        margin: 7px 0;
+      }
+
+      .checklist {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px 20px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .checklist li {
+        position: relative;
+        margin: 0;
+        padding: 12px 12px 12px 38px;
+        background: #f7faf8;
+        border-radius: 11px;
+      }
+
+      .checklist li::before {
+        content: "✓";
+        position: absolute;
+        left: 13px;
+        top: 11px;
+        color: var(--green);
+        font-weight: 900;
+      }
+
+      .note {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      footer {
+        padding: 28px 8px 0;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.82rem;
+      }
+
+      @media (max-width: 780px) {
+        .grid,
+        .checklist {
+          grid-template-columns: 1fr;
+        }
+        .phase {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        nav {
+          position: static;
+        }
+      }
+
+      @media print {
+        @page {
+          margin: 14mm;
+        }
+        body {
+          background: #fff;
+          font-size: 10.5pt;
+        }
+        .page {
+          width: 100%;
+          margin: 0;
+        }
+        .hero {
+          padding: 32px;
+          border-radius: 0;
+          box-shadow: none;
+        }
+        .hero h1 {
+          font-size: 34pt;
+        }
+        nav {
+          display: none;
+        }
+        section {
+          box-shadow: none;
+          break-inside: avoid;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+        .phase {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">Implementation brief</p>
+        <h1>SEO &amp; AEO recovery and growth plan</h1>
+        <p class="lead">
+          A prioritized plan to establish a correct search identity, strengthen
+          health-content trust, and make Empowered Wellness with Inna easier for
+          search and answer engines to discover, understand, cite, and convert.
+        </p>
+        <div class="meta">
+          <span>Prepared 8 September 2026</span>
+          <span>Production: www.empoweredwithinna.com</span>
+          <span>Next.js 15</span>
+          <span>Build verified</span>
+        </div>
+      </header>
+
+      <nav aria-label="Document sections">
+        <a href="#decision">Decision</a>
+        <a href="#findings">Findings</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#plan">Plan</a>
+        <a href="#done">Definition of done</a>
+        <a href="#measurement">Measurement</a>
+        <a href="#sources">Sources</a>
+      </nav>
+
+      <section id="decision">
+        <p class="eyebrow" style="color: var(--green)">Executive decision</p>
+        <h2>Repair identity and indexability before publishing more content</h2>
+        <div class="callout">
+          <strong>Current risk:</strong> every page points search engines to a
+          different, non-resolving canonical domain and publishes structured
+          data for an unrelated lawn-care business. These signals can prevent
+          correct indexing and teach answer engines the wrong entity.
+        </div>
+        <p style="margin-top: 18px">
+          The site already has useful foundations: the homepage and six articles
+          are statically rendered, primary content appears in HTML, headings are
+          clear, and the FAQ provides direct answers. The recommended sequence
+          is therefore recovery first, trust second, content expansion third,
+          and continuous measurement thereafter.
+        </p>
+      </section>
+
+      <section id="findings">
+        <p class="eyebrow" style="color: var(--green)">Audit summary</p>
+        <h2>Priority findings</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="pill red">Critical</span>
+            <h3>Canonical conflict</h3>
+            <p>
+              All routes canonicalize to
+              <code>empowerednutritionwithinna.com</code>, which did not
+              resolve. The live host is <code>www.empoweredwithinna.com</code>.
+            </p>
+          </article>
+          <article class="card">
+            <span class="pill red">Critical</span>
+            <h3>False entity schema</h3>
+            <p>
+              Global JSON-LD describes “Rosales Yard Maintenance,” Austin lawn
+              services, and an unsupported 5.0 rating from 500 reviews.
+            </p>
+          </article>
+          <article class="card">
+            <span class="pill red">Critical</span>
+            <h3>Duplicate page identity</h3>
+            <p>
+              The blog hub and all articles inherit the homepage title,
+              description, canonical, and social metadata.
+            </p>
+          </article>
+          <article class="card">
+            <span class="pill red">Critical</span>
+            <h3>Discovery files missing</h3>
+            <p>
+              Production returns 404 for <code>/robots.txt</code> and
+              <code>/sitemap.xml</code>.
+            </p>
+          </article>
+          <article class="card">
+            <span class="pill amber">High</span>
+            <h3>Trust deficit</h3>
+            <p>
+              Health statistics and outcomes lack visible sources; author,
+              business name, domains, phone data, and profiles are inconsistent.
+            </p>
+          </article>
+          <article class="card">
+            <span class="pill amber">High</span>
+            <h3>Weak service architecture</h3>
+            <p>
+              Distinct services exist only as homepage sections, limiting
+              durable intent-specific search landing pages and internal linking.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="evidence">
+        <p class="eyebrow" style="color: var(--green)">Production evidence</p>
+        <h2>HTTP and rendered-HTML checks</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Check</th>
+                <th>Result</th>
+                <th>Required outcome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Homepage</td>
+                <td><span class="pill green">200</span></td>
+                <td>Keep indexable after canonical correction.</td>
+              </tr>
+              <tr>
+                <td>Blog hub and sampled article</td>
+                <td><span class="pill green">200</span></td>
+                <td>Add unique metadata and self-canonicals.</td>
+              </tr>
+              <tr>
+                <td><code>/robots.txt</code></td>
+                <td><span class="pill red">404</span></td>
+                <td>Return 200 and declare sitemap.</td>
+              </tr>
+              <tr>
+                <td><code>/sitemap.xml</code></td>
+                <td><span class="pill red">404</span></td>
+                <td>Return 200 with preferred canonical URLs only.</td>
+              </tr>
+              <tr>
+                <td><code>/inna.jpg</code> social image</td>
+                <td><span class="pill red">404</span></td>
+                <td>
+                  Use a real 1200×630 image returning the correct content type.
+                </td>
+              </tr>
+              <tr>
+                <td>Blog image directory</td>
+                <td><span class="pill red">404</span></td>
+                <td>Create referenced images or remove references.</td>
+              </tr>
+              <tr>
+                <td>Manifest and Apple icon</td>
+                <td><span class="pill red">404</span></td>
+                <td>Add real assets or remove declarations.</td>
+              </tr>
+              <tr>
+                <td>Homepage landmarks</td>
+                <td><span class="pill amber">2 headers / 2 mains</span></td>
+                <td>One header and one main landmark.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top: 14px">
+          Repository build completed successfully. Field Core Web Vitals, Search
+          Console, analytics, backlink, and CDN/WAF log data were not available
+          and remain part of implementation validation.
+        </p>
+      </section>
+
+      <section id="plan">
+        <p class="eyebrow" style="color: var(--green)">Delivery roadmap</p>
+        <h2>Four implementation phases</h2>
+
+        <div class="phase">
+          <div class="phase-label">Phase 0<small>P0 · 1–2 days</small></div>
+          <div>
+            <h3 style="margin-top: 0">Restore truthful, indexable identity</h3>
+            <ol>
+              <li>
+                Confirm the preferred canonical origin, expected to be
+                <code>https://www.empoweredwithinna.com</code>, and centralize
+                it as a shared site configuration value.
+              </li>
+              <li>
+                Redirect every HTTP/HTTPS and apex/www variant to the preferred
+                host in one hop.
+              </li>
+              <li>
+                Remove the unrelated lawn-care JSON-LD immediately. Add only
+                owner-verified <code>Organization</code>, <code>WebSite</code>,
+                and—when verified—<code>Person</code> data with stable IDs.
+              </li>
+              <li>
+                Create Next.js <code>app/robots.ts</code> and
+                <code>app/sitemap.ts</code>; remove the empty singular
+                <code>app/robot.ts</code>.
+              </li>
+              <li>
+                Move page metadata to the App Router Metadata API. Create a
+                typed post registry used by article routes, the blog index,
+                sitemap, and schema.
+              </li>
+              <li>
+                Give every route a unique title, description, self-canonical,
+                Open Graph URL/image, and accurate robots policy.
+              </li>
+              <li>
+                Fix or remove all broken image, icon, and manifest references;
+                remove placeholder site-verification values.
+              </li>
+              <li>
+                Remove the duplicated homepage header/main and add automated
+                production SEO smoke tests.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="phase">
+          <div class="phase-label">Phase 1<small>P1 · 3–7 days</small></div>
+          <div>
+            <h3 style="margin-top: 0">
+              Establish trust and editorial controls
+            </h3>
+            <ol>
+              <li>
+                Run an owner fact-verification session covering professional
+                name, business name, credentials, service area, official contact
+                information, profiles, testimonials, and performance claims.
+              </li>
+              <li>
+                Create About/author, Contact, Privacy, Terms, medical
+                disclaimer, and editorial/review-policy pages and link them
+                globally.
+              </li>
+              <li>
+                Correct the telephone URI and replace or remove placeholder
+                social links.
+              </li>
+              <li>
+                Audit every health, outcome, and corporate statistic. Add
+                primary references or documented first-party methodology;
+                otherwise qualify or remove the claim.
+              </li>
+              <li>
+                Display linked authorship, semantic publication/review dates,
+                and reviewer information when applicable.
+              </li>
+              <li>
+                Add truthful <code>BlogPosting</code> and
+                visible-breadcrumb-aligned <code>BreadcrumbList</code> JSON-LD.
+              </li>
+              <li>
+                Add concise “In brief” or “Key takeaways” sections where useful,
+                followed by evidence, nuance, limitations, and action steps.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="phase">
+          <div class="phase-label">Phase 2<small>P1/P2 · 2–4 weeks</small></div>
+          <div>
+            <h3 style="margin-top: 0">
+              Build an intent-led content architecture
+            </h3>
+            <ol>
+              <li>
+                Map real Search Console queries, prospect questions, and
+                commercial priorities to one canonical page per distinct intent.
+              </li>
+              <li>
+                Create verified service pages for functional nutrition, gut
+                health, perimenopause support, functional lab testing, and
+                corporate wellness. Split GI-MAP/DUTCH pages only if each
+                represents a real, distinct service.
+              </li>
+              <li>
+                Include a direct opening answer, audience, scope and
+                limitations, process, evidence, accurate pricing/timing, FAQs,
+                practitioner identity, and next action on each service page.
+              </li>
+              <li>
+                Build hub-and-spoke internal links among services, articles,
+                evidence, and the blog hub using descriptive anchors.
+              </li>
+              <li>
+                Rework the six current articles for intent and evidence quality.
+                Consolidate only genuine overlap; avoid mass-produced question
+                variants.
+              </li>
+              <li>
+                Add original practitioner assets such as frameworks, decision
+                aids, checklists, consented case methodology, transcripts, or
+                transparent calculators.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="phase">
+          <div class="phase-label">Phase 3<small>P2 · 1–2 weeks</small></div>
+          <div>
+            <h3 style="margin-top: 0">
+              Improve experience, crawler access, and distribution
+            </h3>
+            <ol>
+              <li>
+                Keep primary pages and article content as server components;
+                isolate only filters, accordions, forms, chat, and sharing into
+                client islands.
+              </li>
+              <li>
+                Optimize hero/LCP media with responsive Next.js images, explicit
+                sizing, correct priority, and compression. Review the auto-open
+                lead magnet for intrusive-interstitial and conversion impact.
+              </li>
+              <li>
+                Measure representative templates with field Core Web Vitals and
+                supporting lab diagnostics.
+              </li>
+              <li>
+                If ChatGPT search visibility is wanted, allow
+                <code>OAI-SearchBot</code>. Decide separately whether to allow
+                <code>GPTBot</code>, which concerns potential training use.
+              </li>
+              <li>
+                Submit the corrected sitemap to Google Search Console and Bing
+                Webmaster Tools; inspect representative URLs after deployment.
+              </li>
+              <li>
+                Optionally implement IndexNow for Bing/Copilot freshness. Do not
+                use Google's Indexing API for ordinary pages.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="done">
+        <p class="eyebrow" style="color: var(--green)">Release gate</p>
+        <h2>Definition of done for the foundational release</h2>
+        <ul class="checklist">
+          <li>
+            Preferred public URLs return 200; alternate host/protocol variants
+            redirect once.
+          </li>
+          <li>
+            Every indexable route has unique metadata and one correct
+            self-canonical.
+          </li>
+          <li>
+            <code>/robots.txt</code> and <code>/sitemap.xml</code> return 200.
+          </li>
+          <li>
+            The sitemap contains only canonical, indexable, successful URLs.
+          </li>
+          <li>
+            No page/schema mentions Rosales, lawn care, or unsupported ratings.
+          </li>
+          <li>
+            All metadata and page images return 200 with correct content types.
+          </li>
+          <li>
+            Structured data validates and matches visible, verified information.
+          </li>
+          <li>
+            Navigation contains no placeholder profiles, wrong phone links, or
+            broken links.
+          </li>
+          <li>
+            Health/outcome claims have reviewed evidence, methodology, or
+            qualification.
+          </li>
+          <li>
+            Representative routes pass an automated rendered-metadata smoke
+            test.
+          </li>
+          <li>
+            Representative URLs are inspected in Google and Bing webmaster
+            tools.
+          </li>
+          <li>
+            A search, AI-referral, and business-conversion baseline is recorded.
+          </li>
+        </ul>
+      </section>
+
+      <section id="measurement">
+        <p class="eyebrow" style="color: var(--green)">Ongoing operations</p>
+        <h2>Measure discovery, representation, and outcomes</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Area</th>
+                <th>Measures</th>
+                <th>Cadence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Technical</td>
+                <td>
+                  Indexed URLs, canonical exclusions, sitemap errors, 4xx/5xx
+                  rate, structured-data errors, field CWV by template.
+                </td>
+                <td>Weekly</td>
+              </tr>
+              <tr>
+                <td>Search</td>
+                <td>
+                  Non-branded impressions, clicks, CTR, and position by landing
+                  page and intent; branded demand separately.
+                </td>
+                <td>Weekly / monthly</td>
+              </tr>
+              <tr>
+                <td>Business</td>
+                <td>
+                  Organic consultation starts/completions, lead-magnet
+                  conversion, qualified leads, and assisted conversion.
+                </td>
+                <td>Monthly</td>
+              </tr>
+              <tr>
+                <td>AI referrals</td>
+                <td>
+                  Sessions and conversions from AI referrers, including
+                  ChatGPT's documented <code>utm_source=chatgpt.com</code>.
+                </td>
+                <td>Monthly</td>
+              </tr>
+              <tr>
+                <td>AI representation</td>
+                <td>
+                  Fixed prompt set by engine, interface, locale, date, brand
+                  mention, clickable citation, cited URL, accuracy, and
+                  sentiment.
+                </td>
+                <td>Monthly, repeated samples</td>
+              </tr>
+              <tr>
+                <td>Authority</td>
+                <td>
+                  Accurate third-party profiles, earned mentions/citations,
+                  quality referring domains, and misinformation corrections.
+                </td>
+                <td>Monthly / quarterly</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="sources">
+        <p class="eyebrow" style="color: var(--green)">Research basis</p>
+        <h2>Guides reviewed and primary documentation used</h2>
+        <p>The supplied guides informed the operating model and checklist:</p>
+        <ul>
+          <li>
+            <a href="https://valueaddvc.com/seo-playbook/guide"
+              >Value Add VC — AI SEO &amp; AEO Guide</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://crestodigital.github.io/insights/best-ai-seo-aeo-geo-audit-tools-2026/"
+              >Cresto Digital — AI SEO/AEO/GEO audit tools</a
+            >
+          </li>
+          <li>
+            <a href="https://vydera.com/en/lab/prompts-claude-seo-ai-visibility"
+              >Vydera — prompts for SEO and AI visibility audits</a
+            >
+          </li>
+        </ul>
+        <p style="margin-top: 18px">
+          Important recommendations were verified against:
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+              >Google Search Central — AI features and your website</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+              >Google Search Central — canonical URLs</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+              >Google Search Central — sitemaps</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+              >Google Search Central — structured-data policies</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+              >Google Search Central — helpful, reliable, people-first
+              content</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+              >OpenAI — publishers and developers FAQ</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a"
+              >Bing Webmaster Guidelines</a
+            >
+          </li>
+          <li>
+            <a href="https://www.indexnow.org/documentation"
+              >IndexNow protocol</a
+            >
+          </li>
+        </ul>
+        <p class="note" style="margin-top: 18px">
+          Not recommended as requirements: fixed title/description lengths,
+          minimum word counts, numeric “factual density,” universal FAQ schema,
+          generic Google Indexing API submissions, fixed redirect-equity
+          percentages, or <code>llms.txt</code> as a launch priority.
+        </p>
+      </section>
+
+      <footer>
+        Prepared from repository inspection, production HTTP/rendered checks,
+        and source-verified SEO/AEO guidance.
+      </footer>
+    </main>
+  </body>
+</html>

@@ -56,7 +56,7 @@ const CHAT_FLOW = [
     ]
   },
   {
-    question: "Great question! Inna uses functional lab testing like GI-MAP and DUTCH hormone panels to uncover root causes that standard tests miss. Then she creates personalized nutrition protocols that address YOUR specific imbalances. 92% of her clients find answers where conventional medicine couldn't help. Ready to schedule your consultation?",
+    question: "Great question! Inna discusses functional lab testing such as GI-MAP and DUTCH hormone panels as part of a personalized nutrition conversation when appropriate. Testing support does not replace diagnosis or treatment from a licensed healthcare professional. Ready to schedule your consultation?",
     options: [
       "Yes, let's schedule the call",
       "What would we discuss in the consultation?"
