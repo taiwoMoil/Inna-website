@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { SITE } from '../lib/site';
 
 export function Hero() {
   const [currentSymptom, setCurrentSymptom] = useState(0);
@@ -96,7 +97,7 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group relative px-8 py-4 bg-[#238b45] text-white font-semibold rounded-2xl transition-all duration-300 hover:bg-[#238b45]/90 hover:scale-105 hover:shadow-2xl hover:shadow-[#238b45]/25">
+              <a href={SITE.bookingUrl} target="_blank" rel="noreferrer" className="group relative px-8 py-4 bg-[#238b45] text-white font-semibold rounded-2xl transition-all duration-300 hover:bg-[#238b45]/90 hover:scale-105 hover:shadow-2xl hover:shadow-[#238b45]/25">
                 <span className="relative z-10 flex items-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -104,7 +105,7 @@ export function Hero() {
                   Start Free Consultation
                 </span>
                 <div className="absolute inset-0 bg-[#238b45]/90 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+              </a>
             </div>
 
             {/* Trust Indicators */}
@@ -144,7 +145,7 @@ export function Hero() {
                 <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50">
                   <img
                     src="/Inna.jpg"
-                    alt="Inna, Functional Nutritionist"
+                    alt="Inna Benyukhis, Functional Nutritionist"
                     width={400}
                     height={400}
                     className="rounded-2xl w-full"
@@ -152,13 +153,13 @@ export function Hero() {
 
                   {/* Floating stats */}
                   <div className="absolute -top-4 -right-4 bg-[#238b45] text-white px-4 py-2 rounded-xl font-bold shadow-xl">
-                    <div className="text-2xl">92%</div>
-                    <div className="text-xs opacity-90">Success Rate</div>
+                    <div className="text-2xl">1:1</div>
+                    <div className="text-xs opacity-90">Personalized Support</div>
                   </div>
 
                   <div className="absolute -bottom-4 -left-4 gradient-bg text-white px-4 py-2 rounded-xl font-bold shadow-xl">
-                    <div className="text-2xl">500+</div>
-                    <div className="text-xs opacity-90">Clients Helped</div>
+                    <div className="text-2xl">TX</div>
+                    <div className="text-xs opacity-90">Central Texas</div>
                   </div>
                 </div>
               </div>
@@ -169,7 +170,7 @@ export function Hero() {
                   <span className="text-primary text-sm font-medium">CNTP Certified</span>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/70">
-                  <span className="text-primary text-sm font-medium">6+ Years Experience</span>
+                  <span className="text-primary text-sm font-medium">Virtual Consultations</span>
                 </div>
               </div>
             </div>

@@ -12,12 +12,16 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Wellness with Inna',
+    default: 'Functional Nutrition for Central Texas | Empowered Wellness with Inna',
     template: '%s | Empowered Wellness with Inna'
   },
   description: SITE.description,
   keywords: [
     'functional nutrition',
+    'functional nutrition Buda TX',
+    'functional nutrition Kyle TX',
+    'functional nutrition Austin TX',
+    'functional nutrition San Marcos TX',
     'gut health specialist',
     'chronic fatigue treatment',
     'functional medicine testing',
@@ -42,8 +46,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'Root-Cause Nutrition for Fatigue & Gut Health | Empowered Wellness with Inna',
-    description: 'Functional testing + personalized nutrition for women seeking energy, clarity, and relief from chronic symptoms',
+    title: 'Functional Nutrition for Central Texas | Empowered Wellness with Inna',
+    description: SITE.description,
     url: '/',
     siteName: SITE.name,
     images: ['/opengraph-image'],
@@ -52,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Root-Cause Nutrition for Fatigue & Gut Health',
-    description: 'Functional testing + personalized nutrition for women seeking energy and gut health.',
+    title: 'Functional Nutrition for Central Texas',
+    description: SITE.description,
     images: ['/opengraph-image'],
   },
   robots: {

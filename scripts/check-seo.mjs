@@ -48,6 +48,23 @@ function structuredDataTypes(html) {
 const pages = [
   { route: "/", file: "index.html" },
   { route: "/blogs", file: "blogs.html" },
+  {
+    route: "/central-texas-functional-nutrition",
+    file: "central-texas-functional-nutrition.html",
+  },
+  {
+    route: "/functional-nutrition-consultations",
+    file: "functional-nutrition-consultations.html",
+  },
+  { route: "/gut-health-nutrition", file: "gut-health-nutrition.html" },
+  {
+    route: "/perimenopause-nutrition-support",
+    file: "perimenopause-nutrition-support.html",
+  },
+  { route: "/functional-lab-testing", file: "functional-lab-testing.html" },
+  { route: "/about-inna-benyukhis", file: "about-inna-benyukhis.html" },
+  { route: "/contact", file: "contact.html" },
+  { route: "/medical-disclaimer", file: "medical-disclaimer.html" },
   ...articleSlugs.map((slug) => ({
     route: `/blogs/${slug}`,
     file: `blogs/${slug}.html`,
@@ -95,6 +112,16 @@ assert.equal(
 );
 assert.ok(structuredDataTypes(homepage).includes("Organization"));
 assert.ok(structuredDataTypes(homepage).includes("WebSite"));
+assert.ok(structuredDataTypes(homepage).includes("Person"));
+
+const centralTexasPage = read("central-texas-functional-nutrition.html");
+for (const city of ["Buda", "Kyle", "Austin", "San Marcos"]) {
+  assert.match(
+    centralTexasPage,
+    new RegExp(city),
+    `Central Texas page is missing ${city}`,
+  );
+}
 
 for (const slug of articleSlugs) {
   const types = structuredDataTypes(read(`blogs/${slug}.html`));

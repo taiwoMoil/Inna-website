@@ -89,8 +89,7 @@ export function FinalCTA() {
           </h2>
 
           <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Stop guessing and start healing. Join hundreds of women who have discovered
-            the root causes of their symptoms and reclaimed their energy, vitality, and joy.
+            Start with a conversation about your goals, questions, and whether nutrition-focused support feels like the right next step.
           </p>
         </div>
 
@@ -103,8 +102,7 @@ export function FinalCTA() {
                 Start Your Healing Journey Today
               </h3>
               <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Schedule your complimentary 15-minute Wellness Clarity Call to learn how functional testing
-                can reveal the root causes of your symptoms and create your personalized path to wellness.
+                Schedule a complimentary 15-minute Wellness Clarity Call to discuss your goals, the service scope, and possible next steps.
               </p>
             </div>
 
@@ -143,7 +141,7 @@ export function FinalCTA() {
                 <svg className="w-5 h-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
-                Privacy protected
+                No obligation
               </div>
               <div className="flex justify-center items-center">
                 <svg className="w-5 h-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +178,7 @@ export function FinalCTA() {
           </div>
         </div>
 
-        {/* Final Guarantee */}
+        {/* Closing callout */}
         <div className={`text-center transition-all  duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
           <div className="inline-flex mt-8 items-center bg-white/90 backdrop-blur-sm border border-primary/20 rounded-3xl px-10 py-8 shadow-2xl">
@@ -190,7 +188,7 @@ export function FinalCTA() {
               </svg>
             </div>
             <div className="text-left">
-              <div className="font-bold text-xl mb-1 text-gray-900">100% Satisfaction Guarantee</div>
+              <div className="font-bold text-xl mb-1 text-gray-900">A complimentary first conversation</div>
               <div className="text-gray-600">Complimentary Wellness Clarity Call • No pressure • No obligation</div>
             </div>
           </div>

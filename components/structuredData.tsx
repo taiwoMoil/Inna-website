@@ -1,4 +1,4 @@
-import { SITE } from '../lib/site';
+import { SERVICE_AREAS, SITE } from '../lib/site';
 
 export function StructuredData() {
   const structuredData = {
@@ -10,6 +10,12 @@ export function StructuredData() {
         name: SITE.name,
         url: SITE.origin,
         description: SITE.description,
+        email: SITE.email,
+        telephone: SITE.phone,
+        areaServed: SERVICE_AREAS.map((area) => ({
+          '@type': 'City',
+          name: `${area.name}, ${area.region}`,
+        })),
         logo: {
           '@type': 'ImageObject',
           url: `${SITE.origin}/Empowered_SQ_logo.png`,
@@ -23,6 +29,16 @@ export function StructuredData() {
         description: SITE.description,
         inLanguage: SITE.language,
         publisher: {
+          '@id': `${SITE.origin}/#organization`,
+        },
+      },
+      {
+        '@type': 'Person',
+        '@id': `${SITE.origin}/#inna-benyukhis`,
+        name: SITE.practitioner.name,
+        jobTitle: SITE.practitioner.title,
+        url: `${SITE.origin}${SITE.practitioner.path}`,
+        worksFor: {
           '@id': `${SITE.origin}/#organization`,
         },
       },

@@ -72,31 +72,30 @@ export function Header() {
             // Regular page navigation
             <>
               <li>
-                <a href="#services" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
+                <a href="/#services" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
                   }`}>
                   Services
                 </a>
               </li>
               <li>
-                <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
+                <Link href="/central-texas-functional-nutrition" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'}`}>
+                  Central Texas
+                </Link>
+              </li>
+              <li>
+                <a href="/#about" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
                   }`}>
                   About
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
-                  }`}>
-                  Success Stories
-                </a>
-              </li>
-              <li>
-                <a href="#resources" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
+                <a href="/#resources" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
                   }`}>
                   Resources
                 </a>
               </li>
               <li>
-                <a href="#faq" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
+                <a href="/#faq" className={`font-medium transition-all duration-300 hover:scale-105 ${isScrolled ? 'text-gray-800 hover:text-[#41ab5d]' : 'text-gray-800 hover:text-[#41ab5d]'
                   }`}>
                   FAQ
                 </a>
@@ -155,7 +154,7 @@ export function Header() {
               <>
                 <li>
                   <a
-                    href="#services"
+                    href="/#services"
                     className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -163,8 +162,17 @@ export function Header() {
                   </a>
                 </li>
                 <li>
+                  <Link
+                    href="/central-texas-functional-nutrition"
+                    className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Central Texas
+                  </Link>
+                </li>
+                <li>
                   <a
-                    href="#about"
+                    href="/#about"
                     className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -173,16 +181,7 @@ export function Header() {
                 </li>
                 <li>
                   <a
-                    href="#testimonials"
-                    className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Success Stories
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#resources"
+                    href="/#resources"
                     className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -191,7 +190,7 @@ export function Header() {
                 </li>
                 <li>
                   <a
-                    href="#faq"
+                    href="/#faq"
                     className="block text-lg font-medium text-gray-800 hover:text-[#41ab5d] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -199,7 +198,10 @@ export function Header() {
                   </a>
                 </li>
                 <li className="pt-4">
-                  <button
+                  <a
+                    href="https://calendly.com/inna-ntp/free-15-minute-wellness-clarity-call-via-phone"
+                    target="_blank"
+                    rel="noreferrer"
                     className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -207,7 +209,7 @@ export function Header() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                     </svg>
                     Get Started
-                  </button>
+                  </a>
                 </li>
               </>
             )}

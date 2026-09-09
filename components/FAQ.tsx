@@ -40,7 +40,7 @@ export function FAQ() {
     },
     {
       question: "What if I've tried everything and nothing has worked?",
-      answer: "You're not alone - 88% of our clients have seen multiple providers without relief. The difference is our comprehensive functional testing approach. We identify the specific imbalances driving your symptoms rather than guessing or using one-size-fits-all protocols.",
+      answer: "You're not alone. The initial conversation is an opportunity to discuss what you have tried, your current goals, and whether nutrition-focused support may be a fit. This service does not replace diagnosis or treatment from a licensed healthcare professional.",
       category: "Approach",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

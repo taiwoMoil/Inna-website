@@ -30,7 +30,7 @@ export function MyStory() {
               <div className="relative bg-[#41ab5d]/5 rounded-3xl p-8 shadow-2xl">
                 <img
                   src="/Inna_image_standing.png"
-                  alt="Inna Topiler, Functional Nutritionist"
+                  alt="Inna Benyukhis, Functional Nutritionist"
                   width={400}
                   height={500}
                   className="rounded-2xl w-full shadow-xl"
@@ -38,8 +38,8 @@ export function MyStory() {
 
                 {/* Floating Achievement Badges */}
                 <div className="absolute -top-4 -right-4 bg-[#41ab5d] text-white px-4 py-2 rounded-xl font-bold shadow-xl">
-                  <div className="text-lg">500+</div>
-                  <div className="text-xs opacity-90">Clients</div>
+                  <div className="text-lg">TX</div>
+                  <div className="text-xs opacity-90">Central Texas</div>
                 </div>
 
                 <div className="absolute -bottom-4 -left-4 gradient-bg text-white px-4 py-2 rounded-xl font-bold shadow-xl">

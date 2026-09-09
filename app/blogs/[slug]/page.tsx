@@ -40,7 +40,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     datePublished: post.publishedAt,
     mainEntityOfPage: url,
     image: `${SITE.origin}/opengraph-image`,
-    author: { '@type': 'Person', name: 'Inna' },
+    author: { '@id': `${SITE.origin}/#inna-benyukhis`, name: SITE.practitioner.name },
     publisher: { '@id': `${SITE.origin}/#organization` },
   };
   const breadcrumbData = {
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: post.title,
     description: post.description,
     alternates: { canonical: path },
-    authors: [{ name: 'Inna' }],
+    authors: [{ name: SITE.practitioner.name, url: `${SITE.origin}${SITE.practitioner.path}` }],
     openGraph: {
       title: post.title,
       description: post.description,

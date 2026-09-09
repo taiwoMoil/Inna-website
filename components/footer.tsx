@@ -13,7 +13,7 @@ export function Footer() {
   const quickLinks = [
     {
       name: 'About',
-      href: '/#about',
+      href: '/about-inna-benyukhis',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -22,7 +22,7 @@ export function Footer() {
     },
     {
       name: 'Services',
-      href: '/#services',
+      href: '/functional-nutrition-consultations',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -30,17 +30,8 @@ export function Footer() {
       )
     },
     {
-      name: 'Testimonials',
-      href: '/#testimonials',
-      icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-        </svg>
-      )
-    },
-    {
       name: 'Blog',
-      href: '/#blog',
+      href: '/blogs',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -56,11 +47,40 @@ export function Footer() {
         </svg>
       )
     },
+    {
+      name: 'Central Texas',
+      href: '/central-texas-functional-nutrition',
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21s8-4.35 8-11A8 8 0 004 10c0 6.65 8 11 8 11z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10a2 2 0 100-4 2 2 0 000 4z" />
+        </svg>
+      )
+    },
+    {
+      name: 'Contact',
+      href: '/contact',
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 8l-7.89 4.26a2 2 0 01-2.22 0L3 8m18 0a2 2 0 00-2-2H5a2 2 0 00-2 2m18 0v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8" />
+        </svg>
+      )
+    },
+    {
+      name: 'Medical disclaimer',
+      href: '/medical-disclaimer',
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v4m0 4h.01M10.29 3.86l-8.82 15.28A2 2 0 003.2 22h17.6a2 2 0 001.73-2.86L13.71 3.86a2 2 0 00-3.42 0z" />
+        </svg>
+      )
+    },
   ];
 
   const services = [
     {
       name: 'Functional Lab Testing',
+      href: '/functional-lab-testing',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
@@ -69,6 +89,7 @@ export function Footer() {
     },
     {
       name: 'Root-Cause Nutrition',
+      href: '/functional-nutrition-consultations',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
@@ -77,6 +98,7 @@ export function Footer() {
     },
     {
       name: 'GI-MAP Analysis',
+      href: '/functional-lab-testing',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -85,6 +107,7 @@ export function Footer() {
     },
     {
       name: 'DUTCH Hormone Testing',
+      href: '/functional-lab-testing',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -93,6 +116,7 @@ export function Footer() {
     },
     {
       name: 'Food Sensitivity Testing',
+      href: '/functional-nutrition-consultations',
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
@@ -244,7 +268,7 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Location</p>
-                  <span className="text-gray-900 font-medium">Serving clients nationwide via telehealth</span>
+                  <span className="text-gray-900 font-medium">Serving Buda, Kyle, Austin, San Marcos & Central Texas virtually</span>
                 </div>
               </div>
             </div>
@@ -292,12 +316,12 @@ export function Footer() {
             <ul className="space-y-4">
               {services.map((service) => (
                 <li key={service.name}>
-                  <div className="flex items-center text-gray-600 group">
+                  <a href={service.href} className="flex items-center text-gray-600 group hover:text-green-600">
                     <div className="w-8 h-8 bg-gray-100 rounded-xl flex items-center justify-center mr-3 group-hover:bg-green-100 transition-colors duration-300">
                       {service.icon}
                     </div>
                     <span className="group-hover:text-green-600 transition-colors duration-300">{service.name}</span>
-                  </div>
+                  </a>
                 </li>
               ))}
             </ul>
