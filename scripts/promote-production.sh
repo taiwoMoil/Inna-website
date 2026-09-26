@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-STAGING_URL="https://github.com/taiwoMoil/Inna-website.git"
-PRODUCTION_URL="https://github.com/EmpoweredWithInna/website.git"
+STAGING_URL="git@github.com:taiwoMoil/Inna-website.git"
+PRODUCTION_URL="git@github.com:EmpoweredWithInna/website.git"
 STAGING_REF="refs/promotion/staging-main"
 PRODUCTION_REF="refs/promotion/production-main"
 DRY_RUN=false
